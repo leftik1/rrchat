@@ -1,16 +1,34 @@
+<p align="center">
+  <img src="screenshoots/banner.png" alt="rrchat banner" width="100%">
+</p>
+
 # rrchat
 
 A local chat for llama.cpp models on Windows. rrchat starts and manages `llama-server` for you and serves a web UI that works in the browser on your PC and as an installable app (PWA) on your phone.
 
 Everything runs on your own machine. Models are regular `.gguf` files: Llama, Qwen, Mistral, Gemma, Phi, DeepSeek, or anything else llama.cpp can load.
 
+<p align="center">
+  <img src="screenshoots/easyquestion.jpg" alt="rrchat chat interface" width="650">
+</p>
+
 ## What it does
 
 - Launches, monitors and unloads `llama-server.exe` processes. While you chat it shows VRAM, RAM and context usage, and remembers GPU layers and context size per model.
 - Shows the model's reasoning (`<think>`) in a collapsible block with a timer and markdown rendering.
 - Accepts images and documents (PDF, TXT, MD, code, CSV, JSON). If the main model can't see images, they are sent to a separate OCR model such as GLM-OCR.
-- Lets the model search the web on its own: it decides when to search, writes the query and uses the results in its answer.
-- Has a Work Mode: a file agent locked to one folder that can read, create, edit and move files, and asks for confirmation before anything destructive.
+- **Smart Web Search**: Lets the model search the web on its own: it decides when to search, writes the query and uses the results in its answer.
+
+<p align="center">
+  <img src="screenshoots/websearch.jpg" alt="Smart Web Search" width="400">
+</p>
+
+- **Work Mode (Agent)**: A file agent locked to one folder that can read, create, edit and move files, and asks for confirmation before anything destructive.
+
+<p align="center">
+  <img src="screenshoots/pcagentmode.png" alt="Work Mode Agent" width="650">
+</p>
+
 - Works from a phone: scan a QR code, add it to the home screen, and it runs full-screen with safe-area support on iOS and Android.
 - Can be reached from outside your home network through Tailscale Funnel.
 - Comes with a setup wizard for the first launch.
