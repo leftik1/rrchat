@@ -1,0 +1,108 @@
+/* rrchat design tokens. Цвета сняты с эталонных экранов (assets/screens).
+   Менять только осознанно: любое значение в компонентах берётся отсюда. */
+
+:root {
+  /* --- Фон: глубокий премиальный чёрный градиент с едва уловимым тёплым подтоном --- */
+  --bg-top: #0a0808;
+  --bg-bottom: #010101;
+
+  /* --- Поверхности (плоские цвета, без градиентов и теней) --- */
+  --surface-1: #120e0e;      /* кнопки шапки, поле ввода, чип модели, выпадающий список */
+  --surface-2: #150d0d;      /* строки настроек, списки, кнопка Settings, кнопки New chat / Directory */
+  --surface-3: #110b0b;      /* боковая панель, плитки Camera/Gallery/File, неактивные сегменты */
+  --surface-sheet: #140f0f;  /* нижний лист меню «+» */
+  --surface-bubble: #1c1313; /* пузыри сообщений */
+  --surface-think: #201415;  /* карточка Thinking, карточки инструментов */
+  --surface-round: #1e1515;  /* круглые кнопки «+» и отправки внутри поля ввода */
+  --selected: #361e1e;       /* выбранный сегмент, заливка шкалы, включённый тумблер */
+
+  /* --- Текст и иконки --- */
+  --text: #e2e1e1;           /* основной текст */
+  --text-2: #c3c1c1;         /* логотип, второстепенный текст */
+  --text-muted: #888686;     /* подписи, статусные строки, reasoning */
+  --text-dim: #6b6868;       /* статистика токенов, плейсхолдеры */
+  --icon: #ffffff;           /* иконки */
+
+  /* --- Служебные --- */
+  --scrim: rgba(0, 0, 0, 0.55);
+  --hairline: rgba(255, 255, 255, 0.06); /* только для таблиц и блоков кода */
+  --danger: #c25a5a;                      /* ошибки и опасные действия */
+  --focus: #7a3b3b;                       /* контур фокуса с клавиатуры */
+
+  /* --- Радиусы --- */
+  --r-s: 10px;
+  --r-m: 14px;     /* кнопки, пузыри, строки, плитки */
+  --r-l: 20px;     /* поле ввода, листы, панели */
+  --r-pill: 999px; /* круглые кнопки, тумблер, шкала */
+
+  /* --- Отступы (шаг 4) --- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+
+  /* --- Типографика: единственный шрифт --- */
+  --font: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --fs-micro: 11px;
+  --fs-small: 12px;
+  --fs-base: 14px;
+  --fs-title: 15px;
+  --fs-input: 16px;   /* не меньше 16px, иначе iOS Safari приближает страницу */
+  --fs-logo: 72px;
+  --lh-base: 1.5;
+  --fw-regular: 400;
+  --fw-medium: 500;
+
+  /* --- Размеры --- */
+  --hit: 44px;         /* минимальная зона нажатия */
+  --header-h: 60px;
+  --input-h: 52px;
+  --sidebar-w: 82vw;
+  --sidebar-max: 340px;
+
+  /* --- Анимация --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in: cubic-bezier(0.5, 0, 0.75, 0);
+  --dur-press: 120ms;
+  --dur-fast: 180ms;
+  --dur: 240ms;
+  --dur-panel: 320ms;
+  --dur-slow: 420ms;
+}
+
+html {
+  background: var(--bg-bottom);
+  color-scheme: dark;
+}
+
+/* Градиент фона закреплён за окном и не прокручивается вместе с контентом. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, var(--bg-top), var(--bg-bottom));
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+button, input, textarea, select { font: inherit; color: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-press: 1ms; --dur-fast: 1ms; --dur: 1ms; --dur-panel: 1ms; --dur-slow: 1ms; }
+}

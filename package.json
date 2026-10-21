@@ -1,0 +1,20 @@
+{
+  "name": "rrchat",
+  "version": "1.0.0",
+  "author": "leftik1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leftik1/rrchat.git"
+  },
+  "homepage": "https://github.com/leftik1/rrchat",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run build --prefix client && npm run build --prefix server",
+    "test": "npm run test --prefix server",
+    "token:reset": "npm run token:reset --prefix server",
+    "security-check": "node scripts/security-check.mjs",
+    "start": "node server/dist/index.js",
+    "dev": "npm run dev --prefix server"
+  }
+}
