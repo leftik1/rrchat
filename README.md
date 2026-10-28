@@ -6,6 +6,8 @@
 
 A local chat for llama.cpp models on Windows. rrchat starts and manages `llama-server` for you and serves a web UI that works in the browser on your PC and as an installable app (PWA) on your phone.
 
+YOU CAN USE RRCHAT MODELS FROM HF (https://huggingface.co/rrchat) FOR BEST EXPERIENCE
+
 Everything runs on your own machine. Models are regular `.gguf` files: Llama, Qwen, Mistral, Gemma, Phi, DeepSeek, or anything else llama.cpp can load.
 
 <p align="center">
